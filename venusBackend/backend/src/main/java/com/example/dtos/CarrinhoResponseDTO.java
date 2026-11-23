@@ -1,0 +1,3 @@
+package com.example.dtos;
+import java.math.BigDecimal; import java.util.List;
+public class CarrinhoResponseDTO { private Long idCarrinho; private Long usuarioId; private List<ItemCarrinhoResponseDTO> itens; private BigDecimal valorTotal; public CarrinhoResponseDTO(){} public Long getIdCarrinho(){return idCarrinho;} public void setIdCarrinho(Long v){idCarrinho=v;} public Long getUsuarioId(){return usuarioId;} public void setUsuarioId(Long v){usuarioId=v;} public List<ItemCarrinhoResponseDTO> getItens(){return itens;} public void setItens(List<ItemCarrinhoResponseDTO> v){itens=v;} public BigDecimal getValorTotal(){return valorTotal;} public void setValorTotal(BigDecimal v){valorTotal=v;} }

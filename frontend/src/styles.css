@@ -1,0 +1,108 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-display: "Playfair Display", Georgia, serif;
+  --font-sans: "Manrope", system-ui, sans-serif;
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-wine: var(--wine);
+  --color-wine-foreground: var(--wine-foreground);
+  --color-blush: var(--blush);
+  --color-cream: var(--cream);
+  --color-success: var(--success);
+}
+
+:root {
+  --radius: 0.75rem;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.2 0.02 20);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.2 0.02 20);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.2 0.02 20);
+  /* vermelho */
+  --primary: oklch(0.5 0.19 25);
+  --primary-foreground: oklch(0.99 0.01 85);
+  /* rosa claro (cartões) */
+  --secondary: oklch(0.93 0.035 15);
+  --secondary-foreground: oklch(0.38 0.14 25);
+  --muted: oklch(0.96 0.015 30);
+  --muted-foreground: oklch(0.5 0.03 20);
+  --accent: oklch(0.88 0.06 15);
+  --accent-foreground: oklch(0.36 0.14 25);
+  --destructive: oklch(0.55 0.22 27);
+  --destructive-foreground: oklch(0.99 0 0);
+  --border: oklch(0.88 0.04 15);
+  --input: oklch(0.9 0.04 15);
+  --ring: oklch(0.5 0.19 25);
+  /* vermelho escuro / vinho */
+  --wine: oklch(0.36 0.13 25);
+  --wine-foreground: oklch(0.97 0.02 85);
+  --blush: oklch(0.96 0.02 15);
+  /* off-white / bege */
+  --cream: oklch(0.985 0.018 90);
+  --success: oklch(0.5 0.12 150);
+}
+
+@layer base {
+  * { border-color: var(--color-border); }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+  }
+  h1, h2, h3 { font-family: var(--font-sans); }
+}
+
+@utility font-display { font-family: var(--font-display); }
+@utility btn-primary {
+  display: inline-flex; align-items: center; justify-content: center; gap: .5rem;
+  border-radius: 9999px; padding: .6rem 1.4rem; font-weight: 700; font-size: .875rem;
+  background: var(--primary); color: var(--primary-foreground); transition: filter .2s, transform .2s;
+  &:hover { filter: brightness(.92); }
+  &:disabled { opacity: .5; cursor: not-allowed; }
+}
+@utility btn-wine {
+  display: inline-flex; align-items: center; justify-content: center; gap: .5rem;
+  border-radius: 9999px; padding: .6rem 1.4rem; font-weight: 700; font-size: .875rem;
+  background: var(--wine); color: var(--wine-foreground); transition: filter .2s;
+  &:hover { filter: brightness(1.15); }
+}
+@utility chip {
+  display: inline-flex; align-items: center; justify-content: center; min-width: 2.25rem; height: 2.25rem;
+  padding: 0 .6rem; border-radius: 9999px; font-size: .8rem; font-weight: 700;
+  border: 1px solid var(--border); background: var(--card); color: var(--foreground); transition: all .15s;
+}
+@utility chip-active { background: var(--primary); color: var(--primary-foreground); border-color: var(--primary); }
+@utility field {
+  width: 100%; border-radius: .6rem; border: 1px solid var(--input); background: var(--blush);
+  padding: .65rem .9rem; font-size: .9rem; outline: none;
+  &:focus { border-color: var(--ring); box-shadow: 0 0 0 3px color-mix(in oklab, var(--ring) 20%, transparent); }
+}
+@utility panel { border-radius: var(--radius-xl); background: var(--secondary); padding: 1.25rem; }

@@ -1,0 +1,2 @@
+package com.example.dtos;
+public class ImagemRequestDTO { private Long produtoId; private byte[] arquivo; private String contentType; public ImagemRequestDTO(){} public Long getProdutoId(){return produtoId;} public void setProdutoId(Long v){produtoId=v;} public byte[] getArquivo(){return arquivo;} public void setArquivo(byte[] v){arquivo=v;} public String getContentType(){return contentType;} public void setContentType(String v){contentType=v;} }
